@@ -100,8 +100,3 @@ bot.on('message', msg => {
       console.log("Sohbet " + msg.member + " tarafından silindi!");
       console.log("1000 mesaj gg oldu :)");
 }}});
-
-/* AVATAR */
-// Create an event listener for messages
-if msg.content.startsWith('avatar')
-  await client.send_message(msg.channel, msg.author.avatar_url)
