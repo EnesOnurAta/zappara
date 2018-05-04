@@ -1,0 +1,2 @@
+# zappara
+Discord Bot
