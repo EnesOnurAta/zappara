@@ -62,8 +62,6 @@ bot.on('message', msg => {
 }}});
 
 /* KULLANICI BILGI */
-const moment = require("moment");
-require("moment-duration-format");
 const status = {
   online: "Çevrimiçi",
   idle: "Boşta",
@@ -108,5 +106,5 @@ exports.conf = {
 exports.help = {
   name: "profil",
   description: "Kullanıcılar hakkında bilgi verir",
-  usage: "z!profil <@etiket> veya <ID>"
+  usage: "profil <@etiket> veya <ID>"
 };
