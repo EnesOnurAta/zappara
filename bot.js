@@ -62,49 +62,47 @@ bot.on('message', msg => {
 }}});
 
 /* KULLANICI BILGI */
-const status = {
-  online: "Çevrimiçi",
-  idle: "Boşta",
-  dnd: "Rahatsız Etme",
-  offline: "Çevrimdışı yada Görünmez"
-};
-const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
-exports.run = (client, msg, args) => {
-  const member = msg.mentions.members.first() || msg.guild.members.get(args[0]) || msg.member;
-  if (!member) return msg.reply("Lütfen kullanıcıyı @etiketleyin yada ID sini yazın");
-  let bot;
-  if (member.user.bot === true) {
-    bot = "EVET";
-  } else {
-    bot = "HAYIR , o gerçek üye";
-  }
-  const embed = new Discord.MessageEmbed()
-    .setColor(randomColor)
-    .setThumbnail(`${member.user.displayAvatarURL()}`)
-    .setAuthor(`${member.user.tag} (${member.id})`, `${member.user.avatarURL()}`)
-    .addField("Kullanıcı Adı:", `${member.nickname !== null ? `Nickname: ${member.nickname}` : "Kullanıcı Adı YOK"}`, true)
-    .addField("Bot?", `${bot}`, true)
-    .addField("Guild", `${bot}`, true)
-    .addField("Durumu", `${status[member.user.presence.status]}`, true)
-    .addField("Oynadığı Oyun", `${member.user.presence.game ? `${member.user.presence.game.name}` : "Hiç bir şey oynamıyor"}`, true)
-    .addField("Rolleri", `${member.roles.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "Rolü Yok"}`, true)
-    .addField("Katıldığı Tarih", `${moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true)
-    .addField("Hesabı Açtığı Tarih", `${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true);
+bot.on('message', message => { //Message Event | Listener
 
-  msg.channel.send({
-    embed
-  });
-};
+    if (message.content.startsWith(prefix + 'profil')) {
 
-exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ["profil"],
-  permLevel: 0
-};
+        const PROFIL = new Discord.MessageEmbed()
 
-exports.help = {
-  name: "profil",
-  description: "Kullanıcılar hakkında bilgi verir",
-  usage: "profil <@etiket> veya <ID>"
-};
+            //All Fields are Optional Pick Any some
+
+            .setAuthor(message.author.username, message.author.avatarURL()) //Heading With Username & Their Avatar 
+            .setTitle('PROFIL')
+            .setURL('www.google.com') //Any Vaild Link
+            .setColor('RANDOM') //You Can Use HexColour Ex:- #000000
+            .setImage(message.author.avatarURL()) //Add Any Image URl || Image
+            .setThumbnail(message.author.avatarURL()) //Add Any Image URl || ThumbNail
+
+            //All Feilds Are Just Examples pick Some & add as you like
+
+            .addField('Avatar', message.author.avatar, true) //The ID of the user's avatar //Inline True or false
+            .addField('AvatarURL', message.author.avatarURL({
+                format: 'png'
+            }), true) //{options} options are Size?: 128 | 256 | 512 | 1024 | 2048, Format?: "webp" | "png" | "jpg" | "gif" //.defaultAvatarURL() A link to the user's default avatar //.displayAvatarURL() A link to the user's avatar if they have one. Otherwise a link to their default avatar will be returned
+            .addField('AvatarURL', message.author.avatarURL({
+                size: '2048'
+            }), true)
+            .addField('Bot', message.author.bot, true) //Returns True If Message Author = Bot || False If Message Author not Bot.
+            .addField('Hesabı Açtığı Tarih', message.author.createdAt, false) //The time the user was created || .createdTimestamp - The timestamp the user was created at
+            .addField('Discrim', message.author.discriminator, true) //A discriminator/tag based on username for the user Ex:- 0001
+            .addField('DMChannel', message.author.dmChannel) //The DM between the client's user and this user || If Nothing Returns "Null"
+            .addField('ID', message.author.id) //The ID of the User/author
+            .addField('Son Mesajı', message.author.lastMessage) //The Message object of the last message sent by the user, if one was sent
+            .addField('Son Mesaj ID', message.author.lastMessageID) //The ID of the last message sent by the user, if one was sent
+            .addField('Presence', message.author.presence) //The presence of this user
+            .addField('Durumu', message.author.presence.status) //The presence status of this user
+            .addField('Oynadığı Oyun', message.author.presence.activity.name) //The presence Game of this user
+            .addField('Etiket', message.author.tag) //The Discord "tag" for this user || Ex:- Sai Chinna#6718
+            .addField('Kullanıcı Adı', message.author.username) //The username of the user || Ex:- Sai Chinna
+            .addField('Sunucudaki Kullanıcı Adı', message.guild.member(target).displayName) //Nick Name In That (message sent) server || Define target as message Author Ex:- let target = message.author; || Add This Line in Top
+
+            .setFooter('Requested By', message.author.tag) //Change To Anything As You Wish
+            .setTimestamp() //The timestamp of this embed
+
+        message.channel.send(PROFIL);
+    }
+});
