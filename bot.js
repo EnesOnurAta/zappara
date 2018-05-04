@@ -18,12 +18,6 @@ bot.on('ready', () => {
   }); 
 })
 
-/* PING */
-bot.on('message', msg => {
-  if (msg.content === prefix + 'ping') {
-    msg.reply(`**${bot.ping}**ms gecikme`);
-  }
-  
 /* SELAM VERME */
 bot.on('message', async msg => {
   if (msg.content.toLowerCase() === 'sa') {
