@@ -11,47 +11,7 @@ bot.on('ready', () => {
 });
 
 /* OYNUYOR */
-exports.run = (client, msg, args) => {
-    let statuses = {
-      "online": "online",
-      "on": "online",
-      "invisible": "invisible",
-      "offline": "invisible",
-      "off": "invisible",
-      "invis": "invisible",
-      "i": "invisible",
-      "dnd": "dnd",
-      "idle": "idle"
-    };
-    if(!args[0]) return msg.edit(`Zappara | www.zappara.cf`).then(setTimeout(msg.delete.bind(msg), 1000));
-    let status = statuses[args[0].toLowerCase()];
-    if(!status) {
-      return msg.edit(`Yardım Komutu ${status} z!yardım`).then(setTimeout(msg.delete.bind(msg), 1000));
-    }
-    if(status === "on") status = "online";
-    if(status === "off") status = "invisible";
-    if(status === "i") status = "invisible";
-    if(status === "offline") status = "invisible";
-    client.user.setStatus(status)
-    .then(u=> {
-      msg.edit(`Status changed to ${status}`).then(setTimeout(msg.delete.bind(msg), 1000));
-    }).catch(e=> {
-      msg.edit(`Error while changing status to: ${status}\n\`\`\`${e}\`\`\``).then(setTimeout(msg.delete.bind(msg), 1000));
-    });
-};
 
-exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ["s"],
-  permLevel: 0
-};
-
-exports.help = {
-  name: 'status',
-  description: 'Changes the Status of the bot/user',
-  usage: 'status [online/invisible/dnd/idle]'
-};
 
 /* SELAM VERME */
 bot.on('message', async msg => {
@@ -100,3 +60,54 @@ bot.on('message', msg => {
       console.log("Sohbet " + msg.member + " tarafından silindi!");
       console.log("1000 mesaj gg oldu :)");
 }}});
+
+/* KULLANICI BILGI */
+const Discord = require("discord.js");
+const moment = require("moment");
+require("moment-duration-format");
+const status = {
+  online: "Çevrimiçi",
+  idle: "Boşta",
+  dnd: "Rahatsız Etme",
+  offline: "Çevrimdışı yada Görünmez"
+};
+const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
+exports.run = (client, msg, args) => {
+  const member = msg.mentions.members.first() || msg.guild.members.get(args[0]) || msg.member;
+  if (!member) return msg.reply("Lütfen kullanıcıyı @etiketleyin yada ID sini yazın");
+  let bot;
+  if (member.user.bot === true) {
+    bot = "EVET";
+  } else {
+    bot = "HAYIR , o gerçek üye";
+  }
+  const embed = new Discord.MessageEmbed()
+    .setColor(randomColor)
+    .setThumbnail(`${member.user.displayAvatarURL()}`)
+    .setAuthor(`${member.user.tag} (${member.id})`, `${member.user.avatarURL()}`)
+    .addField("Kullanıcı Adı:", `${member.nickname !== null ? `Nickname: ${member.nickname}` : "Kullanıcı Adı YOK"}`, true)
+    .addField("Bot?", `${bot}`, true)
+    .addField("Guild", `${bot}`, true)
+    .addField("Durumu", `${status[member.user.presence.status]}`, true)
+    .addField("Oynadığı Oyun", `${member.user.presence.game ? `${member.user.presence.game.name}` : "Hiç bir şey oynamıyor"}`, true)
+    .addField("Rolleri", `${member.roles.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "Rolü Yok"}`, true)
+    .addField("Katıldığı Tarih", `${moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true)
+    .addField("Hesabı Açtığı Tarih", `${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true);
+
+  msg.channel.send({
+    embed
+  });
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["profil"],
+  permLevel: 0
+};
+
+exports.help = {
+  name: "profil",
+  description: "Kullanıcılar hakkında bilgi verir",
+  usage: "k!profil <@etiket> veya <ID>"
+};
