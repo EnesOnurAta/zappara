@@ -62,7 +62,6 @@ bot.on('message', msg => {
 }}});
 
 /* KULLANICI BILGI */
-const Discord = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
 const status = {
@@ -109,5 +108,5 @@ exports.conf = {
 exports.help = {
   name: "profil",
   description: "Kullanıcılar hakkında bilgi verir",
-  usage: "k!profil <@etiket> veya <ID>"
+  usage: "z!profil <@etiket> veya <ID>"
 };
