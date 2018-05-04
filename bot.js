@@ -65,3 +65,13 @@ bot.on('message', msg => {
       console.log("Sohbet " + msg.member + " tarafından silindi!");
       console.log("1000 mesaj gg oldu :)");
 }}});
+
+/* AVATAR */
+// Create an event listener for messages
+bot.on('message', message => {
+  // If the message is "what is my avatar"
+  if (message.content === prefix + 'avatar') {
+    // Send the user's avatar URL
+    message.reply(message.author.displayAvatarURL());
+  }
+});
