@@ -68,10 +68,5 @@ bot.on('message', msg => {
 
 /* AVATAR */
 // Create an event listener for messages
-bot.on('message', message => {
-  // If the message is "what is my avatar"
-  if (message.content.toLowerCase === prefix + 'avatar') {
-    // Send the user's avatar URL
-    message.reply(message.author.displayAvatarURL());
-  }
-});
+if msg.content.startsWith('avatar')
+  await client.send_message(msg.channel, msg.author.avatar_url)
