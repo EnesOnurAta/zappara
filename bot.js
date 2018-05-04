@@ -17,11 +17,3 @@ bot.on('ready', () => {
     type: "PLAYING"
   }); 
 })
-
-/* PING */
-bot.on('message', msg => {
-  if (msg.content === prefix + 'ping') {
-    msg.reply(`**${bot.ping}**ms gecikme`);
-  
-  
-  });
