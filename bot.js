@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 var prefix = 'z!';
 
 /* TOKEN */
-bot.login('NDM3MjcwNjM2OTEwNDc3MzEz.Dbz5xw.aKtVdBPmMpwJIQspZpS2f7I3JcI');
+bot.login('NDQyMDMyNTEzMzcyOTEzNjY0.Dc5O7Q.qyu5kUp7BZZNt6dxXOtUcTVPTxs');
 
 /* node bot.js */
 bot.on('ready', () => {
