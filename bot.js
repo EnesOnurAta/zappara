@@ -70,7 +70,7 @@ bot.on('message', msg => {
 // Create an event listener for messages
 bot.on('message', message => {
   // If the message is "what is my avatar"
-  if (message.content === prefix + 'avatar') {
+  if (message.content.toLowerCase === prefix + 'avatar') {
     // Send the user's avatar URL
     message.reply(message.author.displayAvatarURL());
   }
