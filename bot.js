@@ -37,9 +37,8 @@ bot.on('message', msg => {
     .addField(':warning: Uyarı :warning:', 'Bu komutu özel mesajlarda kullanamazsın.')
     msg.author.sendEmbed(ozelmesajuyari); }
       if (msg.channel.type !== 'dm') {
-        if (!msg.member.hasPermission("MANAGE_MESSAGES")) {
-          if (msg.author.id !== '274551537139712001') {
-            const mesajlariyonet = new Discord.RichEmbed()
+        if (!msg.member.hasPermission("MANAGE_MESSAGES")) {{
+          const mesajlariyonet = new Discord.RichEmbed()
           .setColor(0xFF0000)
           .setTimestamp()
           .setAuthor(msg.author.username, msg.author.avatarURL)
