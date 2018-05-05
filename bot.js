@@ -18,6 +18,12 @@ bot.on('ready', () => {
   }); 
 })
 
+/* PING */
+bot.on('message', msg => {
+    if (msg.content === prefix + 'ping') {
+      msg.reply(`**${bot.ping}**ms`);
+    }
+  
 /* SELAM VERME */
 bot.on('message', async msg => {
   if (msg.content.toLowerCase() === 'sa') {
@@ -78,18 +84,6 @@ bot.on('message', msg => {
   
       }
       });
-/* PING */
-bot.on('message', msg => {
-  if (msg.content === prefix + 'ping') {
-    msg.reply(`**${bot.ping}**ms gecikme`);
-  }
-  
-/* TÜRKİYE */
-bot.on('message', msg => {
-  if (msg.content === prefix + 'tr') {
-    msg.reply(`Ne mutlu Türk'üm Diyene...`);
-    msg.reply(`- Mustafa Kemal ATATÜRK -`);
-  }
 
 /* BOTU ÇAĞIRINCA */
 bot.on('message', async msg => {
@@ -102,4 +96,33 @@ bot.on('message', async msg => {
     msg.react(':regional_indicator_i:');
     msg.react(':regional_indicator_m:');
   }
-})
+});
+
+/* SUNUCUYA GİRİŞ */
+bot.on('guildMemberAdd', member => {
+  let guild = member.guild;
+  let joinRole = guild.roles.find('name', 'Üye'); // Burada girişte verilcek rolu seçelim.
+  member.addRole(joinRole); // seçtiğimiz rolu verelim.
+
+  const channel = member.guild.channels.find('name', 'zappara'); // burda ise kanalı belirleyelim hangi kanala atsın ben mod-log dedim.
+  if (!channel) return;
+  const embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .setAuthor(member.user.username, member.user.avatarURL)
+  .setThumbnail(member.user.avatarURL)
+  .setTitle('📥 | Sunucuya katıldı!')
+  .setTimestamp()
+  channel.sendEmbed(embed); // belirlediğimiz kanala mesaj gönderelim.
+});
+
+bot.on('guildMemberRemove', member => {
+  const channel = member.guild.channels.find('name', 'zappara');
+  if (!channel) return;
+  const embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .setAuthor(member.user.username, member.user.avatarURL)
+  .setThumbnail(member.user.avatarURL)
+  .setTitle('📤 | Sunucudan ayrıldı')
+  .setTimestamp()
+  channel.sendEmbed(embed); 
+});
