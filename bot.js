@@ -64,3 +64,40 @@ bot.on('message', msg => {
     return msg.channel.sendEmbed(sohbetsilindi);
       console.log("Sohbet " + msg.member + " tarafından silindi!");
 }}});
+
+/* YAZ */
+bot.on('message', msg => {
+    if (msg.content.startsWith(prefix + "yaz")) {
+      if (msg.channel.type !== "dm"){
+      let mesaj = msg.content.substring(2 + 3);
+      msg.delete (msg.content == 'yaz' + mesaj)
+      let embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+         .setDescription(mesaj)
+  return msg.channel.send({embed})}
+  
+      }
+      });
+/* PING */
+bot.on('message', msg => {
+  if (msg.content === prefix + 'ping') {
+    msg.reply(`**${bot.ping}**ms gecikme`);
+  }
+  
+bot.on('message', msg => {
+  if (msg.content === prefix + 'tr')
+    msg.reply('');
+  }
+
+/* BOTU ÇAĞIRINCA */
+bot.on('message', async msg => {
+  if (msg.content.toLowerCase() === '@Zappara#6274') {
+    await msg.react(':regional_indicator_e:');
+    msg.react(':regional_indicator_f:');
+    msg.react(':regional_indicator_e:');
+    msg.react(':regional_indicator_n:');
+    msg.react(':regional_indicator_d:');
+    msg.react(':regional_indicator_i:');
+    msg.react(':regional_indicator_m:');
+  }
+});
