@@ -13,7 +13,7 @@ bot.on('ready', () => {
 /* OYNUYOR */
 bot.on('ready', () => {
   bot.user.setStatus("PLAYING"); 
-  bot.user.setActivity('z!yardım | Zappara', {
+  bot.user.setActivity('z!yardım | Zappara | www.zappara.cf', {
     type: "PLAYING"
   }); 
 })
