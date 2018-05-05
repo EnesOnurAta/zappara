@@ -5,7 +5,7 @@ var prefix = 'z!';
 /* TOKEN */
 bot.login('NDQyMDMyNTEzMzcyOTEzNjY0.Dc5O7Q.qyu5kUp7BZZNt6dxXOtUcTVPTxs');
 
-/* node bot.js */
+/* BOT AÇILINCA */
 bot.on('ready', () => {
   console.log(`Yapımcısı Enes Onur Ata olan ${bot.user.username} botu sunucuya katıldı!`);
 });
@@ -84,19 +84,6 @@ bot.on('message', msg => {
   
       }
       });
-
-/* BOTU ÇAĞIRINCA */
-bot.on('message', async msg => {
-  if (msg.content.toLowerCase() === '@Zappara#6274') {
-    await msg.react(':regional_indicator_e:');
-    msg.react(':regional_indicator_f:');
-    msg.react(':regional_indicator_e:');
-    msg.react(':regional_indicator_n:');
-    msg.react(':regional_indicator_d:');
-    msg.react(':regional_indicator_i:');
-    msg.react(':regional_indicator_m:');
-  }
-});
 
 /* SUNUCUYA GİRİŞ */
 bot.on('guildMemberAdd', member => {
