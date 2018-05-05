@@ -102,4 +102,4 @@ bot.on('message', async msg => {
     msg.react(':regional_indicator_i:');
     msg.react(':regional_indicator_m:');
   }
-});
+})
