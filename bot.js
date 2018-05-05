@@ -84,9 +84,12 @@ bot.on('message', msg => {
     msg.reply(`**${bot.ping}**ms gecikme`);
   }
   
+/* TÜRKİYE */
 bot.on('message', msg => {
-  if (msg.content === prefix + 'tr')
-    msg.reply(`TÜRKİYE`);}
+  if (msg.content === prefix + 'tr') {
+    msg.reply(`Ne mutlu Türk'üm Diyene...`);
+    msg.reply(`- Mustafa Kemal ATATÜRK -`);
+  }
 
 /* BOTU ÇAĞIRINCA */
 bot.on('message', async msg => {
