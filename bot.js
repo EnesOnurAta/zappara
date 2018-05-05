@@ -86,8 +86,7 @@ bot.on('message', msg => {
   
 bot.on('message', msg => {
   if (msg.content === prefix + 'tr')
-    msg.reply('');
-  }
+    msg.reply('TÜRKİYE');}
 
 /* BOTU ÇAĞIRINCA */
 bot.on('message', async msg => {
