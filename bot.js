@@ -7,7 +7,9 @@ bot.login('NDQyMDMyNTEzMzcyOTEzNjY0.Dc5O7Q.qyu5kUp7BZZNt6dxXOtUcTVPTxs');
 
 /* BOT AÇILINCA */
 bot.on('ready', () => {
-  console.log(`Yapımcısı Enes Onur Ata olan ${bot.user.username} botu sunucuya katıldı!`);
+  console.log('Giris Saglandi');
+  console.log("Prefix: " + prefix);
+  console.log("Bot ID'si:" + bot.user.id);
 });
 
 /* OYNUYOR */
