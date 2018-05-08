@@ -115,15 +115,7 @@ bot.on('message', msg => {
     description: ('Ping:  ' + ~~(bot.ping) + 'ms')
   }})
 }
-
- bot.on('message', msg => {
-  if (msg.author.bot) return;
-  if (msg.content.toLowerCase().includes('senin baban kim')) msg.reply('Benim babam Enes Onur Ata#9427!');
-  if (msg.content.toLowerCase().includes('Zappara')) msg.reply('Efendim canım?');
-  if (msg.content.toLowerCase().includes('Enes Onur Ata')) msg.reply('Benim yapımcımı mı çağırdın? ID: Enes Onur Ata#9427');
-   });
-
-  bot.on('message', msg => {
+bot.on('message', msg => {
     if (msg.content === prefix + 'sunucu') {
       const embed = new Discord.RichEmbed()
         .setColor("RANDOM")
