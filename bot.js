@@ -111,7 +111,6 @@ bot.on('guildMemberRemove', member => {
 });
   /* Otomatik Mesajlar */
 bot.on('message', msg => {
-  if (msg.author.bot) return;
   if (msg.content.toLowerCase().includes('Zappara senin baban kim?')) msg.reply('Benim babam Enes Onur Ata#9427 dır!');
   if (msg.content.toLowerCase().includes('Zappara')) msg.reply('Efendim Canım!');
   if (msg.content.toLowerCase().includes('Evlatlarım')) msg.reply('Babaam!');
