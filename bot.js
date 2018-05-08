@@ -122,3 +122,15 @@ bot.on('message', msg => {
   if (msg.content.toLowerCase().includes('Zappara')) msg.reply('Efendim canım?');
   if (msg.content.toLowerCase().includes('Enes Onur Ata')) msg.reply('Benim yapımcımı mı çağırdın? ID: Enes Onur Ata#9427');
    });
+
+  bot.on('message', msg => {
+    if (msg.content === prefix + 'sunucu') {
+      const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setThumbnail(msg.author.avatarURL)
+        .addField("Sunucu Sahibi", msg.guild.owner)
+        .addField("Toplam Üye Sayısı", msg.guild.members.size)
+        .addField("Oluşturulma Tarihi", msg.guild.createdAt)
+      msg.channel.send(embed)
+    }
+  });
