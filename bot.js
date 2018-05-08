@@ -109,12 +109,6 @@ bot.on('guildMemberRemove', member => {
   .setTimestamp()
   channel.sendEmbed(embed); 
 });
-bot.on('message', msg => {
-    if (msg.content.startsWith === prefix + "ping") {
-    message.channel.send({embed: {
-    description: ('Ping:  ' + ~~(bot.ping) + 'ms')
-  }})
-}
   /* Otomatik Mesajlar */
 bot.on('message', msg => {
   if (msg.author.bot) return;
