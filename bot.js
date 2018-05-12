@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const client = new Discord.Client();
 var prefix = '-';
+let PREFIX = '-';
 
 /* TOKEN */
 bot.login(process.env.BOT_TOKEN);
