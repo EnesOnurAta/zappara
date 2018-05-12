@@ -31,7 +31,7 @@ function setActivity() {
     var info = Gameinfo[Math.floor(Math.random() * Gameinfo.length)]; //Random Math to set the setGame to something in the GameInfo array
 
     bot.user.setActivity(info) // "playing Game" '...' Sets the setGame to what the info Random math picked from the GameInfo Array
-    if (config.debugMode === "1") {
+    if (config.debugMode === "0") {
         console.log(`[ OYNUYOR ] Zappara şu anda ( ${info} ) oynuyor`) //Logs to console what the setGame was set as.
     }
 
@@ -196,7 +196,7 @@ bot.on('message', message => { //Message Event | Listener
 
 client.on('message', message => { //Message Event | Listener
 
-    if (message.content.startsWith(prefix + 'Userinfo')) {
+    if (message.content.startsWith(prefix + 'user')) {
 
         const UserInfo = new Discord.MessageEmbed()
 
