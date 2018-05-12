@@ -10,8 +10,10 @@ bot.login(process.env.BOT_TOKEN);
 /* BOT AÇILINCA */
 bot.on('ready', () => {
   console.log('Giris Saglandi');
+  console.log('Zappara 🅻🅴🅶🅴🅽🅳 Bot');
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si:" + bot.user.id);
+  console.log('Zappara şu anda ${info} oynuyor');
 });
 
 /* OYNUYOR */
@@ -26,12 +28,12 @@ bot.on('ready', () => {
 
 function setActivity() {
     //Variable Array for what the setGame can be set to
-    var Gameinfo = [`Prefix: ${prefix}`, `Hizmet Verdiği: ${bot.guilds.size} Sunucu`, `The 🅻🅴🅶🅴🅽🅳 Bot`, `Yardım: ${prefix}yardım`, `Kullanılıyor ${(((process.memoryUsage().heapUsed)/1024)/1024).toFixed(0)}MB RAM`, `Ping to API: ${(bot.ping).toFixed(0)} MS`, `Yapımcı: Enes Onur Ata#9427`, `Destek Sunucusu: https://discord.me/zappara` // Change these to what you want, add as many or as few as you want to
+    var Gameinfo = [`Prefix: ${prefix}`, `Hizmet Verdiği: ${client.guilds.size} Sunucu`, `The 🅻🅴🅶🅴🅽🅳 Bot`, `Yardım: ${prefix}yardım`, `Kullanılıyor ${(((process.memoryUsage().heapUsed)/1024)/1024).toFixed(0)}MB RAM`, `Ping: ${(client.ping).toFixed(0)} MS`, `Yapımcı: Enes Onur Ata#9427`, `Destek Sunucusu: https://discord.me/zappara` // Change these to what you want, add as many or as few as you want to
     ]
 
     var info = Gameinfo[Math.floor(Math.random() * Gameinfo.length)]; //Random Math to set the setGame to something in the GameInfo array
 
-    bot.user.setActivity(info) // "playing Game" '...' Sets the setGame to what the info Random math picked from the GameInfo Array
+    client.user.setActivity(info) // "playing Game" '...' Sets the setGame to what the info Random math picked from the GameInfo Array
     if (debugMode === "0") {
         console.log(`[ OYNUYOR ] Zappara şu anda ( ${info} ) oynuyor`) //Logs to console what the setGame was set as.
     }
@@ -41,7 +43,7 @@ function setActivity() {
 setInterval(setActivity, 1000 * 60 * 1) //sets and picks a new game every 1 minutes
   
 /* SELAM VERME */
-bot.on('message', async msg => {
+client.on('message', async msg => {
   if (msg.content.toLowerCase() === 'sa') {
     await msg.react('🇦');
     msg.react('🇸');
@@ -49,7 +51,7 @@ bot.on('message', async msg => {
 });
 
 /* SOHBET TEMIZLEME */
-bot.on('message', msg => {
+client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'sil') {
     if (msg.channel.type === 'dm') {
       const ozelmesajuyari = new Discord.RichEmbed()
@@ -118,7 +120,7 @@ bot.on('guildMemberAdd', member => {
   channel.sendEmbed(embed); // belirlediğimiz kanala mesaj gönderelim.
 });
 
-bot.on('guildMemberRemove', member => {
+client.on('guildMemberRemove', member => {
   const channel = member.guild.channels.find('name', 'zappara');
   if (!channel) return;
   const embed = new Discord.RichEmbed()
@@ -130,13 +132,13 @@ bot.on('guildMemberRemove', member => {
   channel.sendEmbed(embed); 
 });
   /* Otomatik Mesajlar */
-bot.on('message', msg => {
+client.on('message', msg => {
   if (msg.content.toLowerCase().includes('Zappara senin baban kim?')) msg.reply('Benim babam Enes Onur Ata#9427 dır!');
   if (msg.content.toLowerCase().includes('Zappara')) msg.reply('Efendim Canım!');
   if (msg.content.toLowerCase().includes('Evlatlarım')) msg.reply('Babaam!');
 });
 
-bot.on('message', msg => {
+client.on('message', msg => {
     if (msg.content === prefix + 'sunucu') {
       const embed = new Discord.RichEmbed()
         .setColor("RANDOM")
@@ -150,7 +152,7 @@ bot.on('message', msg => {
 
 /* PROFIL */
 /*
-bot.on('message', message => { //Message Event | Listener
+client.on('message', message => { //Message Event | Listener
 
     if (message.content.startsWith(prefix + "profil")) {
 
@@ -194,48 +196,3 @@ bot.on('message', message => { //Message Event | Listener
         message.channel.send(KULLANICI-PROFIL);
     }
 });*/
-
-client.on('message', message => { //Message Event | Listener
-
-    if (message.content.startsWith(PREFIX + 'user')) {
-
-        const UserInfo = new Discord.MessageEmbed()
-
-            //All Fields are Optional Pick Any some
-
-            .setAuthor(message.author.username, message.author.avatarURL()) //Heading With Username & Their Avatar 
-            .setTitle('UserInfo')
-            .setURL('www.google.com') //Any Vaild Link
-            .setColor('RANDOM') //You Can Use HexColour Ex:- #000000
-            .setImage(message.author.avatarURL()) //Add Any Image URl || Image
-            .setThumbnail(message.author.avatarURL()) //Add Any Image URl || ThumbNail
-
-            //All Feilds Are Just Examples pick Some & add as you like
-
-            .addField('Avatar', message.author.avatar, true) //The ID of the user's avatar //Inline True or false
-            .addField('AvatarURL', message.author.avatarURL({
-                format: 'png'
-            }), true) //{options} options are Size?: 128 | 256 | 512 | 1024 | 2048, Format?: "webp" | "png" | "jpg" | "gif" //.defaultAvatarURL() A link to the user's default avatar //.displayAvatarURL() A link to the user's avatar if they have one. Otherwise a link to their default avatar will be returned
-            .addField('AvatarURL', message.author.avatarURL({
-                size: '2048'
-            }), true)
-            .addField('Bot', message.author.bot, true) //Returns True If Message Author = Bot || False If Message Author not Bot.
-            .addField('Created At', message.author.createdAt, false) //The time the user was created || .createdTimestamp - The timestamp the user was created at
-            .addField('Discrim', message.author.discriminator, true) //A discriminator/tag based on username for the user Ex:- 0001
-            .addField('DMChannel', message.author.dmChannel) //The DM between the client's user and this user || If Nothing Returns "Null"
-            .addField('ID', message.author.id) //The ID of the User/author
-            .addField('Last Message', message.author.lastMessage) //The Message object of the last message sent by the user, if one was sent
-            .addField('Last Message ID', message.author.lastMessageID) //The ID of the last message sent by the user, if one was sent
-            .addField('Presence', message.author.presence) //The presence of this user
-            .addField('Presence Status', message.author.presence.status) //The presence status of this user
-            .addField('Presence Game', message.author.presence.activity.name) //The presence Game of this user
-            .addField('Tag', message.author.tag) //The Discord "tag" for this user || Ex:- Sai Chinna#6718
-            .addField('Username', message.author.username) //The username of the user || Ex:- Sai Chinna
-            .addField('Nick Name', message.guild.member(target).displayName) //Nick Name In That (message sent) server || Define target as message Author Ex:- let target = message.author; || Add This Line in Top
-
-            .setFooter('Requested By', message.author.tag) //Change To Anything As You Wish
-            .setTimestamp() //The timestamp of this embed
-
-        message.channel.send(UserInfo);
-    }
-});
