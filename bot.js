@@ -152,7 +152,7 @@ bot.on('message', message => { //Message Event | Listener
 
     if (message.content.startsWith(prefix + "profil")) {
 
-        const Profil = new Discord.MessageEmbed()
+        const KULLANICI-PROFIL = new Discord.MessageEmbed()
 
             //All Fields are Optional Pick Any some
 
@@ -189,6 +189,6 @@ bot.on('message', message => { //Message Event | Listener
             .setFooter('Requested By', message.author.tag) //Change To Anything As You Wish
             .setTimestamp() //The timestamp of this embed
 
-        message.channel.send(Profil);
+        message.channel.send(KULLANICI-PROFIL);
     }
 });
