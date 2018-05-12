@@ -150,7 +150,7 @@ bot.on('message', msg => {
 /* PROFIL */
 bot.on('message', message => { //Message Event | Listener
 
-    if (message.content.startsWith(prefix + 'profil')) {
+    if (message.content.startsWith(prefix + "profil")) {
 
         const Profil = new Discord.MessageEmbed()
 
