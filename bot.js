@@ -197,7 +197,7 @@ bot.on('message', message => { //Message Event | Listener
 
 client.on('message', message => { //Message Event | Listener
 
-    if (message.content.startsWith(prefix + 'user')) {
+    if (message.content.startsWith(PREFIX + 'user')) {
 
         const UserInfo = new Discord.MessageEmbed()
 
