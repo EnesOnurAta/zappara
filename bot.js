@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
 const client = new Discord.Client();
 var prefix = '-';
-let PREFIX = '-';
 
 /* TOKEN */
 bot.login(process.env.BOT_TOKEN);
@@ -10,10 +8,8 @@ bot.login(process.env.BOT_TOKEN);
 /* BOT AÇILINCA */
 bot.on('ready', () => {
   console.log('Giris Saglandi');
-  console.log('Zappara 🅻🅴🅶🅴🅽🅳 Bot');
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si:" + bot.user.id);
-  console.log('Zappara şu anda ${info} oynuyor');
 });
 
 /* OYNUYOR */
