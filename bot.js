@@ -152,7 +152,7 @@ client.on('message', msg => {
 
 client.on('message', message => { //Message Event | Listener
 
-    if (message.content.startsWith(prefix + "profil")) {
+    if (message.content.startsWith === prefix + "profil") {
 
         const PROFIL = new Discord.MessageEmbed()
 
