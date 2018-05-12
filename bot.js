@@ -81,6 +81,8 @@ client.on('message', msg => {
     .addField('Eylem:', 'Sohbet silme')
     .addField('Yetkili:', msg.author.username)
     .addField('Sonuç:', `1000 Mesaj Silindi :white_check_mark:`)
+      msg.react(':white_check_mark:');
+      msg.react(':flag_tr:');
     return msg.channel.sendEmbed(sohbetsilindi);
       console.log("Sohbet " + msg.member + " tarafından silindi!");
 }}});
