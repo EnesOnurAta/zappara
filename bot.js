@@ -50,8 +50,6 @@ client.on('message', async msg => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'sil') {
     if (msg.channel.type === 'dm') {
-      await msg.react(':white_check_mark:');
-      msg.react(':flag_tr:');
       const ozelmesajuyari = new Discord.RichEmbed()
     .setColor(0xFF0000)
     .setTimestamp()
@@ -131,7 +129,7 @@ client.on('guildMemberRemove', member => {
 });
   /* Otomatik Mesajlar */
 client.on('message', msg => {
-  if (msg.content.toLowerCase().includes('Zappara senin baban kim?')) msg.reply('Benim babam Enes Onur Ata#9427 dır!');
+  if (msg.content.toLowerCase() === 'Zappara') msg.reply('Ne var lan!');
   if (msg.content.toLowerCase().includes('Zappara')) msg.reply('Efendim Canım!');
   if (msg.content.toLowerCase().includes('Evlatlarım')) msg.reply('Babaam!');
 });
