@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-var prefix = 'z!';
+var prefix = '-';
 
 /* TOKEN */
 bot.login(process.env.BOT_TOKEN);
@@ -24,8 +24,7 @@ bot.on('ready', () => {
 
 function setActivity() {
     //Variable Array for what the setGame can be set to
-    var Gameinfo = [`Prefix: ${prefix}`, `Hizmet Verdiği: ${bot.guilds.size} Sunucu`, `Running Commands`, `Yardım: ${prefix}yardım`, `Yardım: ${prefix}help`,
-        `Kullanılıyor ${(((process.memoryUsage().heapUsed)/1024)/1024).toFixed(0)}Mb's of RAM`, `Ping to API: ${(bot.ping).toFixed(0)} Ms`, `Yapımcı: Enes Onur Ata#9427`, `Destek Sunucusu: https://discord.me/zappara` // Change these to what you want, add as many or as few as you want to
+    var Gameinfo = [`Prefix: ${prefix}`, `Hizmet Verdiği: ${bot.guilds.size} Sunucu`, `The 🅻🅴🅶🅴🅽🅳 Bot`, `Yardım: ${prefix}yardım`, `Kullanılıyor ${(((process.memoryUsage().heapUsed)/1024)/1024).toFixed(0)}MB RAM`, `Ping to API: ${(bot.ping).toFixed(0)} MS`, `Yapımcı: Enes Onur Ata#9427`, `Destek Sunucusu: https://discord.me/zappara` // Change these to what you want, add as many or as few as you want to
     ]
 
     var info = Gameinfo[Math.floor(Math.random() * Gameinfo.length)]; //Random Math to set the setGame to something in the GameInfo array
@@ -37,7 +36,7 @@ function setActivity() {
 
 }
 
-setInterval(setActivity, 1000 * 60 * 2) //sets and picks a new game every 2 minutes
+setInterval(setActivity, 1000 * 60 * 1) //sets and picks a new game every 1 minutes
   
 /* SELAM VERME */
 bot.on('message', async msg => {
