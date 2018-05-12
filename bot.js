@@ -10,7 +10,7 @@ client.on('ready', () => {
   console.log('Giris Saglandi');
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si:" + client.user.id);
-  console.log("Bot Isim: ${client.user.username}');
+  console.log('Bot Isim: ${client.user.username}');
 });
 
 /* OYNUYOR */
