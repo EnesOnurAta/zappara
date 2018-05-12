@@ -50,9 +50,9 @@ client.on('message', async msg => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'sil') {
     if (msg.channel.type === 'dm') {
+      await msg.react(':white_check_mark:');
+      msg.react(':flag_tr:');
       const ozelmesajuyari = new Discord.RichEmbed()
-     await msg.react(':white_check_mark:');
-     msg.react(':flag_tr:');
     .setColor(0xFF0000)
     .setTimestamp()
     .setAuthor(msg.author.username, msg.author.avatarURL)
