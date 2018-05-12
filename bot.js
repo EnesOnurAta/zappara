@@ -3,20 +3,20 @@ const client = new Discord.Client();
 var prefix = '-';
 
 /* TOKEN */
-bot.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
 
 /* BOT AÇILINCA */
-bot.on('ready', () => {
+client.on('ready', () => {
   console.log('Giris Saglandi');
   console.log("Prefix: " + prefix);
-  console.log("Bot ID'si:" + bot.user.id);
+  console.log("Bot ID'si:" + client.user.id);
 });
 
 /* OYNUYOR */
 
-/*bot.on('ready', () => {
-  bot.user.setStatus("PLAYING"); 
-  bot.user.setActivity('z!yardım | Zappara | www.zappara.cf', {
+/*client.on('ready', () => {
+  client.user.setStatus("PLAYING"); 
+  client.user.setActivity('z!yardım | Zappara | www.zappara.cf', {
     type: "PLAYING"
   }); 
 })
@@ -100,7 +100,7 @@ client.on('message', msg => {
       });
 
 /* SUNUCUYA GİRİŞ */
-bot.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
   let guild = member.guild;
   let joinRole = guild.roles.find('name', 'Üye'); // Burada girişte verilcek rolu seçelim.
   member.addRole(joinRole); // seçtiğimiz rolu verelim.
