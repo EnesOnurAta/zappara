@@ -13,12 +13,31 @@ bot.on('ready', () => {
 });
 
 /* OYNUYOR */
-bot.on('ready', () => {
+
+/*bot.on('ready', () => {
   bot.user.setStatus("PLAYING"); 
   bot.user.setActivity('z!yardım | Zappara | www.zappara.cf', {
     type: "PLAYING"
   }); 
 })
+*/
+
+function setActivity() {
+    //Variable Array for what the setGame can be set to
+    var Gameinfo = [`Prefix: ${prefix}`, `Hizmet Verdiği: ${bot.guilds.size} Sunucu`, `Running Commands`, `Yardım: ${prefix}yardım`, `Yardım: ${prefix}help`,
+        `Kullanılıyor ${(((process.memoryUsage().heapUsed)/1024)/1024).toFixed(0)}Mb's of RAM`, `Ping to API: ${(bot.ping).toFixed(0)} Ms`, `Yapımcı: Enes Onur Ata#9427`, `Destek Sunucusu: https://discord.me/zappara` // Change these to what you want, add as many or as few as you want to
+    ]
+
+    var info = Gameinfo[Math.floor(Math.random() * Gameinfo.length)]; //Random Math to set the setGame to something in the GameInfo array
+
+    bot.user.setActivity(info) // "playing Game" '...' Sets the setGame to what the info Random math picked from the GameInfo Array
+    if (config.debugMode === "1") {
+        console.log(`[ OYNUYOR ] Zappara şu anda ( ${info} ) oynuyor`) //Logs to console what the setGame was set as.
+    }
+
+}
+
+setInterval(setActivity, 1000 * 60 * 2) //sets and picks a new game every 2 minutes
   
 /* SELAM VERME */
 bot.on('message', async msg => {
