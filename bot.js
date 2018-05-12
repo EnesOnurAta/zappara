@@ -51,6 +51,8 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'sil') {
     if (msg.channel.type === 'dm') {
       const ozelmesajuyari = new Discord.RichEmbed()
+     await msg.react(':white_check_mark:');
+     msg.react(':flag_tr:');
     .setColor(0xFF0000)
     .setTimestamp()
     .setAuthor(msg.author.username, msg.author.avatarURL)
@@ -81,8 +83,6 @@ client.on('message', msg => {
     .addField('Eylem:', 'Sohbet silme')
     .addField('Yetkili:', msg.author.username)
     .addField('Sonuç:', `1000 Mesaj Silindi :white_check_mark:`)
-      msg.react(':white_check_mark:');
-      msg.react(':flag_tr:');
     return msg.channel.sendEmbed(sohbetsilindi);
       console.log("Sohbet " + msg.member + " tarafından silindi!");
 }}});
