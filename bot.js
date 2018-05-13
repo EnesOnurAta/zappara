@@ -11,41 +11,20 @@ client.on('ready', () => {
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si:" + client.user.id);
   console.log('Bot Isim: ${client.user.username}');
+  console.log("Hizmet Verdigi Sunucu Sayisi:" + client.guilds.size);
+  console.log(' ');
+  console.log('HESAP BILGILERI');
+  console.log('Bot Email: enesonurata.yedek@gmail.com');
+  console.log('Bot Sifre: zapparabot');
 });
 
 /* OYNUYOR */
-
-/*client.on('ready', () => {
-  client.user.setStatus("PLAYING"); 
-  client.user.setActivity('z!yardım | Zappara | www.zappara.cf', {
-    type: "PLAYING"
+client.on('ready', () => {
+  client.user.setStatus("STREAMING"); 
+  client.user.setActivity('${prefix}yardım | ${client.user.username}', {
+    type: "IDLE"
   }); 
 })
-*/
-
-function setActivity() {
-    //Variable Array for what the setGame can be set to
-    var Gameinfo = [`Prefix: ${prefix}`, `Hizmet Verdiği: ${client.guilds.size} Sunucu`, `The 🅻🅴🅶🅴🅽🅳 Bot`, `Yardım: ${prefix}yardım`, `Kullanılıyor ${(((process.memoryUsage().heapUsed)/1024)/1024).toFixed(0)}MB RAM`, `Ping: ${(client.ping).toFixed(0)} MS`, `Yapımcı: Enes Onur Ata#9427`, `Destek Sunucusu: https://discord.me/zappara` // Change these to what you want, add as many or as few as you want to
-    ]
-
-    var info = Gameinfo[Math.floor(Math.random() * Gameinfo.length)]; //Random Math to set the setGame to something in the GameInfo array
-
-    client.user.setActivity(info) // "playing Game" '...' Sets the setGame to what the info Random math picked from the GameInfo Array
-    if (debugMode === "1") {
-        console.log(`[ OYNUYOR ] Zappara şu anda ( ${info} ) oynuyor`) //Logs to console what the setGame was set as.
-    }
-
-}
-
-setInterval(setActivity, 1000 * 60 * 1) //sets and picks a new game every 1 minutes
-  
-/* SELAM VERME */
-client.on('message', async msg => {
-  if (msg.content.toLowerCase() === 'sa') {
-    await msg.react('🇦');
-    msg.react('🇸');
-  }
-});
 
 /* SOHBET TEMIZLEME */
 client.on('message', msg => {
