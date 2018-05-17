@@ -11,17 +11,12 @@ client.on('ready', () => {
   console.log("Prefix: " + prefix);
   console.log("Bot ID'si:" + client.user.id);
   console.log('Bot Isim: ${client.user.username}');
-  console.log("Hizmet Verdigi Sunucu Sayisi:" + client.guilds.size);
-  console.log(' ');
-  console.log('HESAP BILGILERI');
-  console.log('Bot Email: enesonurata.yedek@gmail.com');
-  console.log('Bot Sifre: zapparabot');
 });
 
 /* OYNUYOR */
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
-  client.user.setActivity('${prefix}yardım | ${client.user.username}', {
+  client.user.setActivity('-yardım | Zappara | www.enesonurata.cf', {
     type: "STREAMING"
   }); 
 })
@@ -60,7 +55,7 @@ client.on('message', msg => {
     .setTimestamp()
     .addField('Eylem:', 'Sohbet silme')
     .addField('Yetkili:', msg.author.username)
-    .addField('Sonuç:', `1000 Mesaj Silindi :white_check_mark:`)
+    .addField('Sonuç:', `:white_check_mark: | Başarılı`)
     return msg.channel.sendEmbed(sohbetsilindi);
       console.log("Sohbet " + msg.member + " tarafından silindi!");
 }}});
@@ -128,7 +123,7 @@ client.on('message', msg => {
 
 client.on('message', message => {
 	if (message.content === prefix + 'tr') {
-		const attachment = new MessageAttachment('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVYpPObVeXJIcd9VY_tVynvkUyFC9maAQ02nHjoGn1EnZk_ArIe38wKtWk');
+		const attachment = new MessageAttachment('https://i.imgur.com/w3duR07.png');
 		message.channel.send(attachment);
   }
 });
