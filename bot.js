@@ -127,7 +127,7 @@ client.on('message', msg => {
   });
 
 client.on('message', message => {
-	if (message.content === prefix + "tr") {
+	if (message.content === prefix + 'tr') {
 		const attachment = new MessageAttachment('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVYpPObVeXJIcd9VY_tVynvkUyFC9maAQ02nHjoGn1EnZk_ArIe38wKtWk');
 		message.channel.send(attachment);
   }
