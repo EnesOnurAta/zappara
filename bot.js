@@ -22,7 +22,7 @@ client.on('ready', () => {
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
   client.user.setActivity('${prefix}yardım | ${client.user.username}', {
-    type: "IDLE"
+    type: "STREAMING"
   }); 
 })
 
@@ -125,3 +125,10 @@ client.on('message', msg => {
       msg.channel.send(embed)
     }
   });
+
+client.on('message', message => {
+	if (message.content === prefix + "tr") {
+		const attachment = new MessageAttachment('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVYpPObVeXJIcd9VY_tVynvkUyFC9maAQ02nHjoGn1EnZk_ArIe38wKtWk');
+		message.channel.send(attachment);
+  }
+});
