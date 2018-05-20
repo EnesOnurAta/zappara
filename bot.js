@@ -120,10 +120,3 @@ client.on('message', msg => {
       msg.channel.send(embed)
     }
   });
-
-client.on('message', message => {
-	if (message.content === prefix + 'tr') {
-		const attachment = new MessageAttachment('https://i.imgur.com/w3duR07.png');
-		message.channel.send(attachment);
-  }
-});
