@@ -16,7 +16,7 @@ client.on('ready', () => {
 // OYNUYOR
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
-  client.user.setActivity('> İyi Akşamlar', {
+  client.user.setActivity('Hatalar Düzeltiliyor...', {
     type: "STREAMING"
   }); 
 })
@@ -73,6 +73,14 @@ client.on('message', msg => {
   
       }
       });
+
+//SELAM
+client.on('message', async msg => {
+  if (msg.content.toLowerCase() === 'sa') {
+    await msg.react('🇦');
+    msg.react('🇸');
+  }
+});
 
 // SUNUCUYA GİRİŞ
 client.on('guildMemberAdd', member => {
