@@ -120,3 +120,8 @@ client.on('message', msg => {
       msg.channel.send(embed)
     }
   });
+
+if (message.content.startsWith(prefix + "profil mavi"))
+            {            
+                bot.user.setAvatar('https://cdn.discordapp.com/attachments/440820385643233290/445650830805434409/zapparabot-logo-v4.png').catch(console.log);
+            }
