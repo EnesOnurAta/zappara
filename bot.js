@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
 
 var prefix = "-";
+client.login(`./ayarlar.json/token`);
 
 client.on("message", async msg => {
   if (msg.author.bot) return;
