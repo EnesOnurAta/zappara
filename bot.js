@@ -263,19 +263,19 @@ client.on('message', message => { //Message Event | Listener
 //YARDIM
 client.on('message', msg => {
     if (msg.content === prefix + 'yardım') {
-    const embed = new Discord.RichEmbed()
+    const Yardım = new Discord.RichEmbed()
       .setColor("RED")
       .setAuthor(msg.author.username, msg.author.avatarURL)
       .addField("Komutlarımız Şunlardır:", `${prefix}yardım = Komutları gösterir`, `${prefix}ping = Gecikmenizi gösterir`, `${prefix}yaz <mesajınız> = Bota mesajınızı yazdırırsınız`, `${prefix}sil = Sohbeti siler`, `${prefix}sunucu = Sunucu bilgisini gösterir`, `${prefix}emojiler = Bulunduğun sunucudaki emojileri gösterir`,)
       .setDescription(`${client.user.username} Komut Yardımı`)
       .setFooter("Zappara | Yardım")
       .setTimestamp()
-    const embed2 = new Discord.RichEmbed()
+    const YardımSunucu = new Discord.RichEmbed()
       .setColor("GREEN")
       .setDescription("Özel mesajlarını kontrol et :postbox:")
       .setAuthor(msg.author.username, msg.author.avatarURL)
       .setFooter("Zappara | Yardım")
       .setTimestamp()
-    msg.channel.send(embed2).then(msg.author.send(embed));
+    msg.channel.send(YardımSunucu).then(msg.author.send(Yardım));
   }
 });
