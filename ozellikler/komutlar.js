@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 exports.run('message', msg => {
-  if (msg.content.toLowerCase() === prefix + 'komutlar') {
     if (msg.channel.type !== 'dm') {
       const KOMUTLAR = new Discord.RichEmbed()
     .setColor(0x00AE86)
