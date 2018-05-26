@@ -176,24 +176,23 @@ client.on('message', message => {
 });
 // Profil Fotoğrafı
 client.on('message', message => {
-    if (message.author.id != 274551537139712001) {
-    if (message.content.startsWith(prefix + "profil normal"))
+   if (message.content.startsWith(prefix + "profil normal"))
             {            
                 client.user.setAvatar('https://cdn.discordapp.com/attachments/440820385643233290/449932544700579842/images_1.png').catch(console.log);
             }
-    if (message.content.startsWith(prefix + "profil z"))
+   if (message.content.startsWith(prefix + "profil z"))
             {            
                 client.user.setAvatar('https://cdn.discordapp.com/attachments/304630731345362946/450008241645289482/letter.png').catch(console.log);
             }
-    if (message.content.startsWith(prefix + "profil a"))
+   if (message.content.startsWith(prefix + "profil a"))
             {            
                 client.user.setAvatar('https://cdn.discordapp.com/attachments/304630731345362946/450008555894865940/blue_2.png').catch(console.log);
             }
-    if (message.content.startsWith(prefix + "profil p"))
+   if (message.content.startsWith(prefix + "profil p"))
             {            
                 client.user.setAvatar('https://cdn.discordapp.com/attachments/304630731345362946/450008850808963103/alphabet-letter-letters-p-red_1.png').catch(console.log);
             }
-    if (message.content.startsWith(prefix + "profil r"))
+   if (message.content.startsWith(prefix + "profil r"))
             {            
                 client.user.setAvatar('https://cdn.discordapp.com/attachments/304630731345362946/450009096406433802/letter_1.png').catch(console.log);
             }
