@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+/*const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = '-';
 
@@ -100,7 +100,7 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.find('name', 'zappara');/* cikis-log isimli kanalınız varsa log oraya gidecektir*/
+  const channel = member.guild.channels.find('name', 'zappara');
   if (!channel) return;
   const embed = new Discord.RichEmbed()
   .setColor('RANDOM')
@@ -223,3 +223,4 @@ client.on('message', msg => {
       msg.author.sendMessage("BOTUN SUNUCUSU: https://discord.me/zappara").then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
   }
 });
+*/
