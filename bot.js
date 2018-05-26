@@ -199,24 +199,17 @@ client.on('message', message => {
             }
            }});
 
-//KULLANICI BİLGİ
-client.on('message', message => { //Message Event | Listener
-
+/*
+client.on('message', message => {
     if (message.content.startsWith(prefix + 'kullanıcıbilgi')) {
-
         const KullanıcıBilgi = new Discord.MessageEmbed()
-
-            //All Fields are Optional Pick Any some
-
+        
             .setAuthor(message.author.username, message.author.avatarURL()) //Heading With Username & Their Avatar 
             .setTitle('Kullanıcı Bilgi')
             .setURL('www.google.com') //Any Vaild Link
             .setColor('RANDOM') //You Can Use HexColour Ex:- #000000
             .setImage(message.author.avatarURL()) //Add Any Image URl || Image
             .setThumbnail(message.author.avatarURL()) //Add Any Image URl || ThumbNail
-
-            //All Feilds Are Just Examples pick Some & add as you like
-
             .addField('Avatar', message.author.avatar, true) //The ID of the user's avatar //Inline True or false
             .addField('AvatarURL', message.author.avatarURL({
                 format: 'png'
@@ -237,38 +230,15 @@ client.on('message', message => { //Message Event | Listener
             .addField('Tag', message.author.tag) //The Discord "tag" for this user || Ex:- Sai Chinna#6718
             .addField('Username', message.author.username) //The username of the user || Ex:- Sai Chinna
             .addField('Nick Name', message.guild.member(target).displayName) //Nick Name In That (message sent) server || Define target as message Author Ex:- let target = message.author; || Add This Line in Top
-
             .setFooter('Requested By', message.author.tag) //Change To Anything As You Wish
             .setTimestamp() //The timestamp of this embed
-
+        
         message.channel.send(KullanıcıBilgi);
     }
-});
-
-//EMOJİLER
-client.on('message', message => { //Message Event | Listener
-
-    if (message.content.startsWith(prefix + 'emojiler')) {
-
-        const List = message.guild.emojis.map(e => e.toString()).join(" ");
-
-        const Emojiler = new Discord.MessageEmbed() //Embed Constructor || If lower than v12.0.0 | Use RichEmbed
-            .setTitle('➠ Emoji\'s') //Title
-            .setAuthor(message.guild.name, message.guild.iconURL `https://cdn.discordapp.com/attachments/383886042178256909/397988796186230784/4zBNFjA8S9yjNB_ONwqBvxTvyXYdC7Nh1jYZ2x6YEcldBr2fyijdjM2J5EoVdTpnkAw300.png`) //<Guild> Name, Icon URL || If <Guild> Icon => Null Sends Custom Image URL 
-            .setColor('RANDOM') //Random colour || Any HexCode Can be used Instead
-            .setDescription(List) //Here will List of Emoji's
-            .setTimestamp() //The timestamp of this embed
-            .setFooter(message.guild.name) //Change To Anything As You Wish
-        message.channel.send(Emojiler) //Sends to Channel
-
-        //------------------------------------------------------------------------------
-        //If You pefer not to send in an Embed
-        //Try
-        message.channel.send(List); //sends to Channel Without Embed
-    }
-});
+}); */
 
 //YARDIM
+/*
 client.on('message', msg => {
     if (msg.content === prefix + 'yardım') {
     const Yardım = new Discord.RichEmbed()
@@ -285,5 +255,18 @@ client.on('message', msg => {
       .setFooter("Zappara | Yardım")
       .setTimestamp()
     msg.channel.send(YardımSunucu).then(msg.author.send(Yardım));
+  }
+}); */
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === prefix + 'komutlar') {
+    if (msg.channel.type !== 'dm') {
+      const ozelmesajkontrol = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .setAuthor(msg.author.username, msg.author.avatarURL)
+    .addField(msg.author.username, 'Özel mesajlarını kontrol et. :postbox:');
+    msg.channel.sendEmbed(ozelmesajkontrol) }
+      msg.author.sendMessage('`Komutlar:\n\n' + prefix + 'yardım\n' + prefix + 'komutlar\n' + prefix + 'bilgi\n' + prefix + 'ping\n' + prefix + 'kurallar\n' + prefix + 'davet\n' + prefix + 'botu ekle\n`').then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
   }
 });
