@@ -15,9 +15,9 @@ client.on('ready', () => {
 
 // OYNUYOR
 client.on('ready', () => {
-  client.user.setStatus("STREAMING"); 
-  client.user.setActivity('Hatalar Düzeltiliyor...', {
-    type: "STREAMING"
+  client.user.setStatus("DND"); 
+  client.user.setActivity('-komutlar | Zappara | -davet', {
+    type: "DND"
   }); 
 })
 
@@ -176,25 +176,9 @@ client.on('message', message => {
 });
 // Profil Fotoğrafı
 client.on('message', message => {
-   if (message.content.startsWith(prefix + "profil normal"))
+   if (message.content.startsWith(prefix + "profil-foto normal"))
             {            
                 client.user.setAvatar('https://cdn.discordapp.com/attachments/440820385643233290/449932544700579842/images_1.png').catch(console.log);
-            }
-   if (message.content.startsWith(prefix + "profil z"))
-            {            
-                client.user.setAvatar('https://cdn.discordapp.com/attachments/304630731345362946/450008241645289482/letter.png').catch(console.log);
-            }
-   if (message.content.startsWith(prefix + "profil a"))
-            {            
-                client.user.setAvatar('https://cdn.discordapp.com/attachments/304630731345362946/450008555894865940/blue_2.png').catch(console.log);
-            }
-   if (message.content.startsWith(prefix + "profil p"))
-            {            
-                client.user.setAvatar('https://cdn.discordapp.com/attachments/304630731345362946/450008850808963103/alphabet-letter-letters-p-red_1.png').catch(console.log);
-            }
-   if (message.content.startsWith(prefix + "profil r"))
-            {            
-                client.user.setAvatar('https://cdn.discordapp.com/attachments/304630731345362946/450009096406433802/letter_1.png').catch(console.log);
             }
 });
 
@@ -209,7 +193,7 @@ client.on('message', msg => {
     .setAuthor(msg.author.username, msg.author.avatarURL)
     .addField(msg.author.username, 'Özel mesajlarını kontrol et. :postbox:');
     msg.channel.sendEmbed(ozelmesajkontrol) }
-      msg.author.sendMessage('`Komutlar:\n\n' + prefix + 'yardım\n' + prefix + 'komutlar\n' + prefix + 'bilgi\n' + prefix + 'ping\n' + prefix + 'kurallar\n' + prefix + 'davet\n' + prefix + 'botu ekle\n`').then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
+      msg.author.sendMessage('`Komutlar:\n\n' + prefix + 'komutlar\n' + prefix + 'ping\n' + prefix + 'davet\n' + prefix + 'destek\n`').then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
   }
 });
 
