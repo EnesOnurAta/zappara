@@ -1,5 +1,5 @@
-// SOHBET TEMIZLEME
-client.on('message', msg => {
+const Discord = require('discord.js');
+exports.run = (client, message, args) => {
   if (msg.content.toLowerCase() === prefix + 'sil') {
     if (msg.channel.type === 'dm') {
       const ozelmesajuyari = new Discord.RichEmbed()
