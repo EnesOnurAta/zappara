@@ -1,4 +1,4 @@
-const Discord = require "discord.js";
+const Discord = require ('discord.js');
 exports.on('message', message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
