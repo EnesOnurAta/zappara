@@ -189,4 +189,4 @@ client.on('message', message => {
             {            
                 client.user.setAvatar('https://cdn.discordapp.com/attachments/304630731345362946/450009096406433802/letter_1.png').catch(console.log);
             }
-           });
+           }});
