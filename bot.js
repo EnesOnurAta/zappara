@@ -16,7 +16,7 @@ client.on('ready', () => {
 /* OYNUYOR */
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
-  client.user.setActivity('-yardım | ', {
+  client.user.setActivity('> İyi Akşamlar', {
     type: "STREAMING"
   }); 
 })
