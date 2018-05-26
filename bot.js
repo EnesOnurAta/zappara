@@ -267,7 +267,7 @@ client.on('message', msg => {
       .setColor("RED")
       .setAuthor(msg.author.username, msg.author.avatarURL)
       .addField("Komutlarımız Şunlardır:", `${prefix}yardım = Komutları gösterir`, `${prefix}ping = Gecikmenizi gösterir`, `${prefix}yaz <mesajınız> = Bota mesajınızı yazdırırsınız`, `${prefix}sil = Sohbeti siler`, `${prefix}sunucu = Sunucu bilgisini gösterir`, `${prefix}emojiler = Bulunduğun sunucudaki emojileri gösterir`,)
-      .setDescription(`${bot.user.username} Komut Yardımı`)
+      .setDescription(`${client.user.username} Komut Yardımı`)
       .setFooter("Zappara | Yardım")
       .setTimestamp()
     const embed2 = new Discord.RichEmbed()
