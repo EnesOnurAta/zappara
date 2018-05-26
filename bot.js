@@ -278,3 +278,4 @@ client.on('message', msg => {
       .setTimestamp()
     msg.channel.send(embed2).then(msg.author.send(embed));
   }
+});
