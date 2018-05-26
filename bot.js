@@ -6,7 +6,7 @@ const ayarlar = require("./ayarlar.json");
 var prefix = "-";
 
 //TOKEN
-client.login(`ayarlar.token`);
+client.login(process.env.BOT_TOKEN);
 
 //DOSYALARI KOMUT OLARAK ALGILAMASI ICIN
 client.on("message", async msg => {
