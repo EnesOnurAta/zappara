@@ -212,3 +212,30 @@ client.on('message', msg => {
       msg.author.sendMessage('`Komutlar:\n\n' + prefix + 'yardım\n' + prefix + 'komutlar\n' + prefix + 'bilgi\n' + prefix + 'ping\n' + prefix + 'kurallar\n' + prefix + 'davet\n' + prefix + 'botu ekle\n`').then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
   }
 });
+
+//DAVET
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === prefix + 'davet') {
+    if (msg.channel.type !== 'dm') {
+      const ozelmesajkontrol = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .setAuthor(msg.author.username, msg.author.avatarURL)
+    .addField(msg.author.username, 'Özel mesajlarını kontrol et. :postbox:');
+    msg.channel.sendEmbed(ozelmesajkontrol) }
+      msg.author.sendMessage("DAVET: https://discordapp.com/api/oauth2/authorize?client_id=437270636910477313&permissions=8&scope=bot").then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
+  }
+});
+//BOTUN SUNUCUSU
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === prefix + 'destek') {
+    if (msg.channel.type !== 'dm') {
+      const ozelmesajkontrol = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .setAuthor(msg.author.username, msg.author.avatarURL)
+    .addField(msg.author.username, 'Özel mesajlarını kontrol et. :postbox:');
+    msg.channel.sendEmbed(ozelmesajkontrol) }
+      msg.author.sendMessage("BOTUN SUNUCUSU: https://discord.me/zappara").then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
+  }
+});
