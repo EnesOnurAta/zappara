@@ -66,10 +66,10 @@ client.on('message', msg => {
       if (msg.channel.type !== "dm"){
       let mesaj = msg.content.substring(2 + 3);
       msg.delete (msg.content == 'yaz' + mesaj)
-      let embed = new Discord.RichEmbed()
+      let YAZ-EMBED = new Discord.RichEmbed()
       .setColor("RANDOM")
          .setDescription(mesaj)
-  return msg.channel.send({embed})}
+  return msg.channel.send({YAZ-EMBED})}
   
       }
       });
@@ -120,13 +120,13 @@ client.on('message', msg => {
 
 client.on('message', msg => {
     if (msg.content === prefix + 'sunucu') {
-      const embed = new Discord.RichEmbed()
+      const SUNUCU = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setThumbnail(msg.author.avatarURL)
         .addField("Sunucu Sahibi", msg.guild.owner)
         .addField("Toplam Üye Sayısı", msg.guild.members.size)
         .addField("Oluşturulma Tarihi", msg.guild.createdAt)
-      msg.channel.send(embed)
+      msg.channel.send(SUNUCU)
     }
   });
 
@@ -148,7 +148,7 @@ client.on('message', message => {
     message.channel.sendEmbed(new Discord.RichEmbed()
     .setColor('RANDOM')
     .setDescription(''));
-    const embed = new Discord.RichEmbed()
+    const TAVSİYE = new Discord.RichEmbed()
     .setColor('RANDOM')
     .setTitle('Tavsiye bilgileri;')
     .addField('Tavsiye:', mesaj, true)
@@ -157,7 +157,7 @@ client.on('message', message => {
     .addField('Sunucu adı:', message.guild.name, true)
     .addField('Sunucu kimliği:', message.guild.id, true)
     client.fetchUser(id)
-    .then(user => {user.send({embed})})
+    .then(user => {user.send({TAVSİYE})})
   }
 });
 
@@ -187,12 +187,12 @@ client.on('message', message => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'komutlar') {
     if (msg.channel.type !== 'dm') {
-      const ozelmesajkontrol = new Discord.RichEmbed()
+      const KOMUTLAR = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
     .setAuthor(msg.author.username, msg.author.avatarURL)
     .addField(msg.author.username, 'Özel mesajlarını kontrol et. :postbox:');
-    msg.channel.sendEmbed(ozelmesajkontrol) }
+    msg.channel.sendEmbed(KOMUTLAR) }
       msg.author.sendMessage('`Komutlar:\n\n' + prefix + 'komutlar\n' + prefix + 'ping\n' + prefix + 'davet\n' + prefix + 'destek\n`').then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
   }
 });
@@ -201,12 +201,12 @@ client.on('message', msg => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'davet') {
     if (msg.channel.type !== 'dm') {
-      const ozelmesajkontrol = new Discord.RichEmbed()
+      const DAVET = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
     .setAuthor(msg.author.username, msg.author.avatarURL)
     .addField(msg.author.username, 'Özel mesajlarını kontrol et. :postbox:');
-    msg.channel.sendEmbed(ozelmesajkontrol) }
+    msg.channel.sendEmbed(DAVET) }
       msg.author.sendMessage("DAVET: https://discordapp.com/api/oauth2/authorize?client_id=437270636910477313&permissions=8&scope=bot").then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
   }
 });
@@ -214,12 +214,12 @@ client.on('message', msg => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'destek') {
     if (msg.channel.type !== 'dm') {
-      const ozelmesajkontrol = new Discord.RichEmbed()
+      const DESTEK = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
     .setAuthor(msg.author.username, msg.author.avatarURL)
     .addField(msg.author.username, 'Özel mesajlarını kontrol et. :postbox:');
-    msg.channel.sendEmbed(ozelmesajkontrol) }
+    msg.channel.sendEmbed(DESTEK) }
       msg.author.sendMessage("BOTUN SUNUCUSU: https://discord.me/zappara").then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
   }
 });
