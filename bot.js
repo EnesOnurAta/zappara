@@ -16,7 +16,7 @@ client.on('ready', () => {
 /* OYNUYOR */
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
-  client.user.setActivity('-yardım | Zappara | www.enesonurata.cf', {
+  client.user.setActivity('-yardım | ', {
     type: "STREAMING"
   }); 
 })
@@ -120,8 +120,8 @@ client.on('message', msg => {
       msg.channel.send(embed)
     }
   });
-
-if (message.content.startsWith(prefix + "profil mavi"))
+client.on('message', message => {
+    if (message.content.startsWith(prefix + "profil mavi"))
             {            
                 bot.user.setAvatar('https://cdn.discordapp.com/attachments/440820385643233290/445650830805434409/zapparabot-logo-v4.png').catch(console.log);
             }
