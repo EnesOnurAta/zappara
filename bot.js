@@ -2,9 +2,13 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
 
+//PREFIX
 var prefix = "-";
-client.login(`./ayarlar.json/token`);
 
+//TOKEN
+client.login(`ayarlar.token`);
+
+//DOSYALARI KOMUT OLARAK ALGILAMASI ICIN
 client.on("message", async msg => {
   if (msg.author.bot) return;
   if(msg.content.indexOf(prefix) !== 0) return;
