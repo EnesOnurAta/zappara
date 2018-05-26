@@ -15,9 +15,9 @@ client.on('ready', () => {
 
 // OYNUYOR
 client.on('ready', () => {
-  client.user.setStatus("DND"); 
+  client.user.setStatus("STREAMING"); 
   client.user.setActivity('-komutlar | Zappara | -davet', {
-    type: "DND"
+    type: "STREAMING"
   }); 
 })
 
