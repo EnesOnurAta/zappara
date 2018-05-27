@@ -1,12 +1,22 @@
 const Discord = require('discord.js');
-exports.run('message', msg => {
-    if (msg.channel.type !== 'dm') {
-      const KOMUTLAR = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .setAuthor(msg.author.username, msg.author.avatarURL)
-    .addField(msg.author.username, 'Özel mesajlarını kontrol et. :postbox:');
-    msg.channel.sendEmbed(KOMUTLAR) }
-      msg.author.sendMessage('`Komutlar:\n\n' + prefix + 'komutlar\n' + prefix + 'ping\n' + prefix + 'davet\n' + prefix + 'destek\n`').then(message => console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Gönderilen mesaj: ${message.content}`)).catch(console.error);
-  }
-});
+
+module.exports.run = async (bot, message, args) => {
+  let embed = new Discord.RichEmbed()
+    .setTitle("Categories")
+    .setAuthor("85 Commands", bot.user.displayAvatarURL)
+    .addField("Moderation", "`" + message.prefix + "mod`", true)
+    .addField("Games", "`" + message.prefix + "games`", true)
+    .addField("Anime", "`" + message.prefix + "animecmds`", true)
+    .addField("Music", "`" + message.prefix + "music`", true)
+    .addField("NSFW", "`" + message.prefix + "nsfw`", true)
+    .addField("Core", "`" + message.prefix + "core`", true)
+    .addField("Utils", "`" + message.prefix + "utils`", true)
+    .addField("Fun", "`" + message.prefix + "fun`", true)
+    .addField("Statistics", "`" + message.prefix + "statistics`", true)
+    .addField("Developer", "`" + message.prefix + "dev`", true)
+  .setFooter("If you found a bug please report it using " + message.prefix + "bugreport")
+    message.channel.send(embed);
+}
+module.exports.help = {
+    name: "help"
+}
