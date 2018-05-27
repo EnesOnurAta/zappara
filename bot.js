@@ -142,3 +142,4 @@ client.on("message", async message => {
       .catch(error => message.reply(`Üzgünüm ${message.author} , yasaklayamadım çünkü: ${error}`));
     message.reply(`${member.user.tag} isimli üye ${message.author.tag} tarafından yasaklandı çünkü: ${reason}`);
   }
+});
