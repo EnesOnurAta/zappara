@@ -2,9 +2,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
 
-const command = args.shift().toLowerCase();
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
-
 //PREFIX
 var prefix = "z.";
 
@@ -92,10 +89,14 @@ client.on('guildMemberRemove', member => {
     }
     if (message.channel.bot) return;
 });
+//MODERASYON İÇİN GEREKLİ
+    if(message.author.bot) return;
+    if(message.content.indexOf(config.prefix) !== 0) return;
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
 
-//MODERASYON KOMUTLARI - BAN,KICK,
-client.on("message", async message => {
-  if(command === "at") {
+//MODERASYON KOMUTLARI - AT-KICK
+    if(command === "at") {
     if(!message.member.roles.some(r=>["Zappara Team"].includes(r.name)) )
       return message.reply("Üzgünüm, bu komutu Zappara Team rolüne sahip olanlar kullanabilir!");
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -110,7 +111,7 @@ client.on("message", async message => {
     message.reply(`${member.user.tag} isimli üye ${message.author.tag} tarafından atıldı çünkü: ${reason}`);
 
   } 
-//BAN - Yasaklama
+//MODERASYON KOMUTLARI - BAN-YASAKLAMAK
   if(command === "yasakla") {
     if(!message.member.roles.some(r=>["Zappara Team"].includes(r.name)) )
       return message.reply("Üzgünüm, bu komutu Zappara Team rolüne sahip olanlar kullanabilir!");
@@ -126,6 +127,7 @@ client.on("message", async message => {
     message.reply(`${member.user.tag} isimli üye ${message.author.tag} tarafından yasaklandı çünkü: ${reason}`);
   }
 });
+
 //MINECRAFT MOB
 client.on("message", msg => {
   if (msg.content === prefix + 'mcyaratık') {
