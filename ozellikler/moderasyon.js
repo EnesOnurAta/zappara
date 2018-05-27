@@ -8,8 +8,6 @@ let embed = new Discord.RichEmbed()
     .addField("`" + message.prefix + "yasak-kaldır`", "Kullanıcının yasağını kaldırır [IDyi kullanın]")
     .addField("`" + message.prefix +"sil`", "Mesajları siler")
     .addField("`" + message.prefix +"at`", "Kullanıcıyı atar")
-    .addField("`" + message.prefix +"uyar`", "Kullanıcıyı uyarırsınız")
-    .addField("`" + message.prefix +"uyarıbak`", "Kullanıcının uyarılarına bakarsınız")
     .setFooter("Gördüğünüz her şey JavaScript'tir")
 
 message.channel.send(embed);
