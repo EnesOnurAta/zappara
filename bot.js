@@ -34,14 +34,14 @@ client.on('ready', () => {
 // OYNUYOR
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
-  client.user.setActivity(`Teşekkürler: ${client.guilds.size} sunucu`); 
+  client.user.setActivity(`Teşekkürler: ${client.users.size} Türk Kullanıcı, ${client.channels.size} Kanal, ${client.guilds.size} Sunucu.`); 
 });
 //EKLİ OLDUĞU SUNUCU SAYISI - OYNUYOR İLE
 client.on("guildCreate", guild => {
-  client.user.setActivity(`Teşekkürler: ${client.guilds.size} sunucu`);
+  client.user.setActivity(`Teşekkürler: ${client.users.size} Türk Kullanıcı, ${client.channels.size} Kanal, ${client.guilds.size} Sunucu.`);
 });
 client.on("guildDelete", guild => {
-  client.user.setActivity(`Teşekkürler: ${client.guilds.size} sunucu`);
+  client.user.setActivity(`Teşekkürler: ${client.users.size} Türk Kullanıcı, ${client.channels.size} Kanal, ${client.guilds.size} Sunucu.`);
 });
 
 //SELAM
@@ -147,6 +147,19 @@ const embed = new Discord.RichEmbed()
   .setColor(0x00AE86)
   .setFooter("Zappara | Minecraft Yaratıkları", "https://cdn.discordapp.com/attachments/440820385643233290/449932544700579842/images_1.png")
   .setImage("https://cdn.discordapp.com/attachments/440820289312522261/445144265333538817/giphy.gif")
+  .setTimestamp()
+  .setURL("http://enesonurata.cf")
+  msg.channel.send({embed})
+  }});
+//Türkiye Bayrağı
+client.on("message", msg => {
+  if (msg.content === prefix + 'tr') {
+const embed = new Discord.RichEmbed()
+  .setTitle("Türkiye Bayrağı")
+  .setAuthor("Zappara", "https://cdn.discordapp.com/attachments/440820385643233290/449932544700579842/images_1.png")
+  .setColor(0x00AE86)
+  .setFooter("Zappara | Türkiye Bayrağı", "https://cdn.discordapp.com/attachments/440820385643233290/449932544700579842/images_1.png")
+  .setImage("http://gifgalaksi.com/upload/tbb_1.gif")
   .setTimestamp()
   .setURL("http://enesonurata.cf")
   msg.channel.send({embed})
