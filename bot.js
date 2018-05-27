@@ -30,11 +30,20 @@ client.on('ready', () => {
   console.log("Bot ID'si:" + client.user.id);
   console.log("Bot Isim:" + client.user.username);
 });
+
 // OYNUYOR
 client.on('ready', () => {
   client.user.setStatus("STREAMING"); 
   client.user.setActivity(`Teşekkürler: ${client.guilds.size} sunucu`); 
 });
+//EKLİ OLDUĞU SUNUCU SAYISI - OYNUYOR İLE
+client.on("guildCreate", guild => {
+  client.user.setActivity(`Teşekkürler: ${client.guilds.size} sunucu`);
+});
+client.on("guildDelete", guild => {
+  client.user.setActivity(`Teşekkürler: ${client.guilds.size} sunucu`);
+});
+
 //SELAM
 client.on('message', async msg => {
   if (msg.content.toLowerCase() === 'sa') {
