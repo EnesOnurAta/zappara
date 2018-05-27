@@ -143,3 +143,27 @@ client.on("message", async message => {
     message.reply(`${member.user.tag} isimli üye ${message.author.tag} tarafından yasaklandı çünkü: ${reason}`);
   }
 });
+//MINECRAFT MOB
+client.on("message", msg => {
+
+  if (msg.content === prefix + 'mcyaratık') {
+
+const embed = new Discord.RichEmbed()
+
+  .setTitle("Minecraft Yaratıkları")
+
+  .setAuthor("Zappara", "https://cdn.discordapp.com/attachments/440820385643233290/449932544700579842/images_1.png")
+
+  .setColor(0x00AE86)
+
+  .setFooter("Zappara | Minecraft Yaratıkları", "https://cdn.discordapp.com/attachments/440820385643233290/449932544700579842/images_1.png")
+
+  .setImage("https://cdn.discordapp.com/attachments/440820289312522261/445144265333538817/giphy.gif")
+
+  .setTimestamp()
+
+  .setURL("http://enesonurata.cf")
+
+  msg.channel.send({embed})
+
+  }});
