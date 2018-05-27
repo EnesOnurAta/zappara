@@ -43,6 +43,62 @@ client.on("guildCreate", guild => {
 client.on("guildDelete", guild => {
   client.user.setActivity(`Teşekkürler: ${client.users.size} Türk Kullanıcı, ${client.channels.size} Kanal, ${client.guilds.size} Sunucu.`);
 });
+client.on('guildCreate', guild => {
+    let channel = bot.channels.get("450419544519999509")
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor(`Giriş ${guild.name}`)
+        .setThumbnail(guild.iconURL)
+        .addField("Kurucu", guild.owner)
+        .addField("Sunucu ID", guild.id, true)
+        .addField("Toplam Kullanıcı", guild.memberCount, true)
+        .addField("Toplam Kanal", guild.channels.size, true)
+         channel.send(embed);
+    });
+client.on('guildDelete', guild => {
+    let channel = bot.channels.get("450419544519999509")
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor(`Çıkış ${guild.name}`)
+        .setThumbnail(guild.iconURL)
+        .addField("Kurucu", guild.owner)
+        .addField("Sunucu ID", guild.id, true)
+        .addField("Toplam Kullanıcı", guild.memberCount, true)
+        .addField("Toplam Kanal", guild.channels.size, true)
+         channel.send(embed);
+    });
+//SUNUCUBILGI
+client.on("message", message => {
+    if (message.content.toLowerCase() === prefix + "sunucubilgi") {
+        const embed = new Discord.RichEmbed()
+    .setTimestamp()
+    .setAuthor(message.guild.name, message.guild.iconURL)
+    .addField('Sunucu Adı:', message.guild.name)
+    .addField('Sunucu ID:', message.guild.id)
+    .addField('Ana kanal:', message.guild.defaultChannel)
+    .addField('Sunucu Bölgesi:', message.guild.region)
+    .addField('Üye sayısı:', message.guild.memberCount)
+    .addField('Sahibi:', message.guild.owner + ' (' + message.guild.ownerID + ')')
+    .addField('Kanal sayısı:', message.guild.channels.size)
+    .addField('Oluşturulma tarihi:', message.guild.createdAt)
+            .setColor("RANDOM")
+
+        return message.channel.sendEmbed(embed)
+    }
+    //BOT BILGI - ZAPPARA
+    if (message.content.toLowerCase() === prefix + "botbilgi") {
+        const embed = new Discord.RichEmbed()
+            .addField("Bot Sahibi", `<@274551537139712001>`, true)
+            .addField("Version", "0.0.1", true)
+            .addField("Toplam Sunucu Sayısı", bot.guilds.size, true)
+            .addField("Toplam Kullanıcı Sayısı", bot.users.size, true)
+            .addField("Toplam Kanal Sayısı", bot.channels.size, true)
+            .addField("Kitaplık Türü", "discord.js")
+            .setColor("RANDOM")
+        return message.channel.sendEmbed(embed)
+    }
+});
+
 
 //SELAM
 client.on('message', async msg => {
