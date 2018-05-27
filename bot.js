@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
 
 const command = args.shift().toLowerCase();
-const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
 
 //PREFIX
 var prefix = "z.";
