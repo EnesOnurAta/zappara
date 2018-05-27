@@ -90,6 +90,7 @@ client.on('guildMemberRemove', member => {
     if (message.channel.bot) return;
 });
 //MODERASYON İÇİN GEREKLİ
+client.on("message", async message => {
     if(message.author.bot) return;
     if(message.content.indexOf(config.prefix) !== 0) return;
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
