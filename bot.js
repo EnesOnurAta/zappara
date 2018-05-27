@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
+const command = args.shift().toLowerCase();
 
 //PREFIX
 var prefix = "z.";
