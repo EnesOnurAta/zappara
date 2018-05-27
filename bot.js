@@ -64,7 +64,7 @@ client.on('guildMemberAdd', member => {
   .setTimestamp()
   channel.sendEmbed(embed); // belirlediğimiz kanala mesaj gönderelim.
 });
-
+// SUNUCUYA ÇIKIŞ
 client.on('guildMemberRemove', member => {
   const channel = member.guild.channels.find('name', 'zappara');/* cikis-log isimli kanalınız varsa log oraya gidecektir*/
   if (!channel) return;
@@ -106,8 +106,7 @@ client.on("message", async message => {
       .catch(error => message.reply(`Üzgünüm ${message.author} üyeyi atamadım : ${error}`));
     message.reply(`${member.user.tag} isimli üye ${message.author.tag} tarafından atıldı çünkü: ${reason}`);
 
-  }
-});  
+  } 
 //BAN - Yasaklama
   if(command === "yasakla") {
     if(!message.member.roles.some(r=>["Zappara Team"].includes(r.name)) )
