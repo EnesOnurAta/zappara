@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     if(!bUser) return message.channel.send(":name_badge: **| Üye bulunamadı.** Lütfen @üye şeklinde etiketleyin yada ID sini girin");
     let bReason = args.join(" ").slice(22);
    if(!bReason) return message.channel.send(":pencil2: **| Lütfen bir sebep belirtin!**")
-    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("<:tickNo:432418492667396097> **| Senin `BAN_MEMBERS` yetkin yok.**");
+    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(":no_entry_sign: **| Senin `BAN_MEMBERS` yetkin yok.**");
 
     let banEmbed = new Discord.RichEmbed()
     .setDescription("**Zappara | Yasakla**")
