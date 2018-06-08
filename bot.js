@@ -7,11 +7,11 @@ client.on('message', msg => {
   let cmd = args.shift().toLowerCase();
   if(message.author.bot) return undefined;
   if(!message.content.startsWith(prefix)) return undefined;
-  message.prefix = ayarlar.prefix;
+  message.prefix = prefix;
 });
 
 //PREFIX
-var prefix = ayarlar.prefix;
+var prefix = "z!";
 
 //TOKEN
 client.login(process.env.BOT_TOKEN);
