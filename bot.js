@@ -56,7 +56,6 @@ client.on("guildDelete", guild => {
             `Teşekkürler : ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı.`
         ];
         let rstatus = Math.floor(Math.random() * status.length);
-		client.user.setStatus("STREAMING");
 		
 	client.user.setActivity(status[rstatus], {Type: 'STREAMING'});        // BOT STATUS
       }; setInterval(botStatus, 20000)
