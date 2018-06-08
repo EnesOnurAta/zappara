@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
 
 //PREFIX
-var prefix = z!;
+var prefix = 'z/';
 
 //TOKEN
 client.login(process.env.BOT_TOKEN);
@@ -44,7 +44,7 @@ client.on("guildDelete", guild => {
 });
 	client.on('ready', () => {
 	console.log("Giris Saglandi...");
-  client.user.setStatus("STREAMING"); 
+ 	client.user.setStatus("STREAMING"); 
 	setTimeout(function(){
 	console.log("Bot hizmete acilmistir.");
 	}, 1000);
@@ -57,6 +57,8 @@ client.on("guildDelete", guild => {
             `Teşekkürler : ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı.`
         ];
         let rstatus = Math.floor(Math.random() * status.length);
+		client.user.setStatus("STREAMING");
+	});
 
 client.on('guildCreate', guild => {
     let channel = bot.channels.get("450419544519999509")
