@@ -198,3 +198,9 @@ const embed = new Discord.RichEmbed()
   .setURL("http://enesonurata.cf")
   msg.channel.send({embed})
   }});
+
+client.on('message', msg => {
+  if (msg.content === prefix + 'yayınyap') {
+   	client.user.setStatus("STREAMING");
+  }
+});
