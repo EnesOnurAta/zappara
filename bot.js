@@ -49,7 +49,7 @@ client.on("guildDelete", guild => {
 	}, 1000);
 	function botStatus() {
         let status = [
-            `Prefix : ${ayarlar.prefix}.`,
+            `Prefix : ${prefix}.`,
             `Teşekkürler : ${client.guilds.size} sunucu`,
             `Ramazan Ayınız Mübarek Olsun.`,
             `Geliştirici: Enes Onur Ata#9427`,
