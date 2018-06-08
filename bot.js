@@ -8,7 +8,6 @@ client.on('message', msg => {
   if(message.author.bot) return undefined;
   if(!message.content.startsWith(prefix)) return undefined;
   message.prefix = ayarlar.prefix;
-  }
 });
 
 //PREFIX
