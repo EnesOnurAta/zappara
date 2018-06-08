@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
+message.prefix = prefix;
 
 //PREFIX
 var prefix = ayarlar.prefix;
@@ -85,7 +86,7 @@ client.on("message", message => {
 
         return message.channel.sendEmbed(embed)
     }
-
+});
 //SELAM
 client.on('message', async msg => {
   if (msg.content.toLowerCase() === 'sa') {
@@ -109,10 +110,10 @@ client.on('message', msg => {
 // SUNUCUYA GİRİŞ
 client.on('guildMemberAdd', member => {
   let guild = member.guild;
-  let joinRole = guild.roles.find('name', 'Üye'); // Burada girişte verilcek rolu seçelim.
-  member.addRole(joinRole); // seçtiğimiz rolu verelim.
+  let joinRole = guild.roles.find('name', 'Üye');
+  member.addRole(joinRole);
 
-  const channel = member.guild.channels.find('name', 'zappara'); // burda ise kanalı belirleyelim hangi kanala atsın ben giris-log dedim.
+  const channel = member.guild.channels.find('name', 'z_üye-log');
   if (!channel) return;
   const embed = new Discord.RichEmbed()
   .setColor('RANDOM')
@@ -120,11 +121,11 @@ client.on('guildMemberAdd', member => {
   .setThumbnail(member.user.avatarURL)
   .setTitle('📥 | Sunucuya katıldı')
   .setTimestamp()
-  channel.sendEmbed(embed); // belirlediğimiz kanala mesaj gönderelim.
+  channel.sendEmbed(embed);
 });
 // SUNUCUYA ÇIKIŞ
 client.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.find('name', 'zappara');/* cikis-log isimli kanalınız varsa log oraya gidecektir*/
+  const channel = member.guild.channels.find('name', 'z_üye-log');
   if (!channel) return;
   const embed = new Discord.RichEmbed()
   .setColor('RANDOM')
@@ -134,6 +135,7 @@ client.on('guildMemberRemove', member => {
   .setTimestamp()
   channel.sendEmbed(embed); 
 });
+
 // Özelden Yazılanlar
     client.on("message", message => {
     const dmchannel = client.channels.find("name", "zappara_dm");
