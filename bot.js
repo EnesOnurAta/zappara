@@ -66,13 +66,6 @@ client.on("guildDelete", guild => {
         ];
         let rstatus = Math.floor(Math.random() * status.length);
 
-        client.user.setActivity(status[rstatus], {Type: 'STREAMING'});
-      }; setInterval(botStatus, 20000)
-        setInterval(() => {
-        dbl.postStats(client.guilds.size)
-        }, 1800000);
-	})
-
 client.on('guildCreate', guild => {
     let channel = bot.channels.get("450419544519999509")
         const embed = new Discord.RichEmbed()
