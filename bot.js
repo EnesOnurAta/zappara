@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
 
 //PREFIX
-var prefix = "z!";
+var prefix = z!;
 
 //TOKEN
 client.login(process.env.BOT_TOKEN);
