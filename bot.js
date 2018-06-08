@@ -35,22 +35,44 @@ client.on("message", async msg => {
 client.on('ready', () => {
   console.log('Giris Saglandi');
   console.log("Prefix: " + prefix);
-  console.log("Bot ID'si:" + client.user.id);
-  console.log("Bot Isim:" + client.user.username);
+  console.log("Bot ID'si: " + client.user.id);
+  console.log("Bot Isim: " + client.user.username);
 });
 
-// OYNUYOR
+// OYNUYOR g
 client.on('ready', () => {
-  client.user.setStatus("STREAMING"); 
-  client.user.setActivity(`Teşekkürler: ${client.users.size} Türk Kullanıcı, ${client.channels.size} Kanal, ${client.guilds.size} Sunucu.`); 
+  client.user.setStatus("STREAMING");
 });
 //EKLİ OLDUĞU SUNUCU SAYISI - OYNUYOR İLE
 client.on("guildCreate", guild => {
-  client.user.setActivity(`Teşekkürler: ${client.users.size} Türk Kullanıcı, ${client.channels.size} Kanal, ${client.guilds.size} Sunucu.`);
+  client.user.setStatus("STREAMING"); 
 });
 client.on("guildDelete", guild => {
-  client.user.setActivity(`Teşekkürler: ${client.users.size} Türk Kullanıcı, ${client.channels.size} Kanal, ${client.guilds.size} Sunucu.`);
+  client.user.setStatus("STREAMING"); 
 });
+	client.on('ready', () => {
+	console.log("Giris Saglandi...");
+  client.user.setStatus("STREAMING"); 
+	setTimeout(function(){
+	console.log("Bot hizmete acilmistir.");
+	}, 1000);
+	function botStatus() {
+        let status = [
+            `Prefix : ${ayarlar.prefix}.`,
+            `Teşekkürler : ${client.guilds.size} sunucu`,
+            `Ramazan Ayınız Mübarek Olsun.`,
+            `Geliştirici: Enes Onur Ata#9427`,
+            `Teşekkürler : ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı.`
+        ];
+        let rstatus = Math.floor(Math.random() * status.length);
+
+        client.user.setActivity(status[rstatus], {Type: 'STREAMING'});
+      }; setInterval(botStatus, 20000)
+        setInterval(() => {
+        dbl.postStats(client.guilds.size)
+        }, 1800000);
+	})
+
 client.on('guildCreate', guild => {
     let channel = bot.channels.get("450419544519999509")
         const embed = new Discord.RichEmbed()
@@ -64,7 +86,7 @@ client.on('guildCreate', guild => {
          channel.send(embed);
     });
 client.on('guildDelete', guild => {
-    let channel = bot.channels.get("450419544519999509")
+    let channel = client.channels.get("450419544519999509")
         const embed = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setAuthor(`Çıkış ${guild.name}`)
@@ -105,12 +127,12 @@ client.on('message', async msg => {
 // Otomatik Mesajlar
 client.on('message', msg => {
   if (msg.content === 'Zappara') {
-   	msg.reply('Yardıma mı ihtiyacın var? \nz.yardım');
+   	msg.reply('Yardıma mı ihtiyacın var? \nz!yardım');
   }
 });
 client.on('message', msg => {
   if (msg.content === 'zappara') {
-   	msg.reply('Yardıma mı ihtiyacın var? \nz.yardım');
+   	msg.reply('Yardıma mı ihtiyacın var? \nz!yardım');
   }
 });
   
@@ -120,7 +142,7 @@ client.on('guildMemberAdd', member => {
   let joinRole = guild.roles.find('name', 'Üye');
   member.addRole(joinRole);
 
-  const channel = member.guild.channels.find('name', 'z_üye-log');
+  const channel = member.guild.channels.find('name', 'z_uyelog');
   if (!channel) return;
   const embed = new Discord.RichEmbed()
   .setColor('RANDOM')
@@ -132,7 +154,7 @@ client.on('guildMemberAdd', member => {
 });
 // SUNUCUYA ÇIKIŞ
 client.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.find('name', 'z_üye-log');
+  const channel = member.guild.channels.find('name', 'z_uyelog');
   if (!channel) return;
   const embed = new Discord.RichEmbed()
   .setColor('RANDOM')
