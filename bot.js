@@ -2,11 +2,14 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
 
-let args = message.content.slice(prefix.length).trim().split(" ");
-let cmd = args.shift().toLowerCase();
-if(message.author.bot) return undefined;
-if(!message.content.startsWith(prefix)) return undefined;
-message.prefix = prefix;
+client.on('message', msg => {
+  let args = message.content.slice(prefix.length).trim().split(" ");
+  let cmd = args.shift().toLowerCase();
+  if(message.author.bot) return undefined;
+  if(!message.content.startsWith(prefix)) return undefined;
+  message.prefix = ayarlar.prefix;
+  }
+});
 
 //PREFIX
 var prefix = ayarlar.prefix;
